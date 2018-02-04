@@ -34,7 +34,7 @@ namespace ARSoft.Tools.Net.Tests
 
             var validDomains = new HashSet<string>();
             var checker =
-                new DnsClient(DnsClient.GetLocalConfiguredDnsServers(), 60);
+                new DnsClient(DnsClient.GetLocalConfiguredDnsServers(), 30000);
 
             var aTask = Task.WhenAll(domains.Select(d => checker.ResolveAsync(DomainName.Parse(d))));
             var mxTask =
